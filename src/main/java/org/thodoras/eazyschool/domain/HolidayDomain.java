@@ -1,5 +1,8 @@
 package org.thodoras.eazyschool.domain;
 
+import lombok.Data;
+
+@Data
 public class HolidayDomain {
 
     private final String day;
@@ -8,24 +11,6 @@ public class HolidayDomain {
 
     public enum Type {
         FESTIVAL, FEDERAL
-    }
-
-    public HolidayDomain(String day, String reason, Type type) {
-        this.day = day;
-        this.reason = reason;
-        this.type = type;
-    }
-
-    public String getDay() {
-        return day;
-    }
-
-    public String getReason() {
-        return reason;
-    }
-
-    public Type getType() {
-        return type;
     }
 
 }

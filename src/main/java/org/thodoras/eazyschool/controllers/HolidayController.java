@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @Controller
 public class HolidayController {
 
-    private IHolidayService holidayService;
+    private final IHolidayService holidayService;
 
     @Autowired
     public HolidayController(IHolidayService holidayService) {
