@@ -1,4 +1,4 @@
-package org.thodoras.eazyschool.controllers;
+package org.thodoras.eazyschool.api.html.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

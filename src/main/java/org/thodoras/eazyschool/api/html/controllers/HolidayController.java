@@ -1,4 +1,4 @@
-package org.thodoras.eazyschool.controllers;
+package org.thodoras.eazyschool.api.html.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

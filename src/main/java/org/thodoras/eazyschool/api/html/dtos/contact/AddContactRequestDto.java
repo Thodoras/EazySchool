@@ -1,4 +1,4 @@
-package org.thodoras.eazyschool.dtos.contact;
+package org.thodoras.eazyschool.api.html.dtos.contact;
 
 import lombok.Data;
 import org.thodoras.eazyschool.domain.ContactDomain;
