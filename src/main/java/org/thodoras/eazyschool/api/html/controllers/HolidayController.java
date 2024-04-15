@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.thodoras.eazyschool.domain.HolidayDomain;
 import org.thodoras.eazyschool.services.IHolidayService;
 
@@ -20,7 +21,13 @@ public class HolidayController {
     }
 
     @GetMapping("/holidays")
-    public String holidayDisplayPage(Model model) {
+    public String holidayDisplayPage(
+            Model model,
+            @RequestParam(required = false) boolean festival,
+            @RequestParam(required = false) boolean federal
+    ) {
+        model.addAttribute("festival", festival);
+        model.addAttribute("federal", federal);
         var holidays = holidayService.getHolidays();
         var types = HolidayDomain.Type.values();
         // TODO: Refactor
