@@ -38,6 +38,7 @@ public class ContactRepository implements IContactsRepository {
         }, new ContactModelRowMapper());
         return ContactModel.toDomains(results);
     }
+
     @Override
     public ContactDomain addContact(ContactDomain contactDomain) {
         var model = new ContactModel(contactDomain);
