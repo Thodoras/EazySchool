@@ -1,7 +1,12 @@
 package org.thodoras.eazyschool.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.thodoras.eazyschool.domain.HolidayDomain;
+import org.thodoras.eazyschool.helpers.aspects.interfaces.LogAspect;
+import org.thodoras.eazyschool.helpers.aspects.interfaces.LogExceptionAspect;
+import org.thodoras.eazyschool.interfaces.IHolidayRepository;
+import org.thodoras.eazyschool.interfaces.IHolidayService;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,14 +14,16 @@ import java.util.List;
 @Service
 public class HolidayService implements IHolidayService {
 
-    private static final List<HolidayDomain> HOLIDAYS = Arrays.asList(
-            new HolidayDomain("Jan 1", "New Year's Day", HolidayDomain.Type.FESTIVAL),
-            new HolidayDomain("Oct 31", "Halloween", HolidayDomain.Type.FESTIVAL),
-            new HolidayDomain("Jan 17", "Martin Luther King Jr. Day", HolidayDomain.Type.FEDERAL)
-    );
+    private final IHolidayRepository holidayRepository;
 
+    @Autowired
+    public HolidayService(IHolidayRepository holidayRepository) {
+        this.holidayRepository = holidayRepository;
+    }
+
+    @LogAspect @LogExceptionAspect
     @Override
     public List<HolidayDomain> getHolidays() {
-        return HOLIDAYS;
+        return holidayRepository.list();
     }
 }

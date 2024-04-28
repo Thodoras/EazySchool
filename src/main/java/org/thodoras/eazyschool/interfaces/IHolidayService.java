@@ -1,4 +1,4 @@
-package org.thodoras.eazyschool.services;
+package org.thodoras.eazyschool.interfaces;
 
 import org.thodoras.eazyschool.domain.HolidayDomain;
 

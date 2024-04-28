@@ -6,7 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.thodoras.eazyschool.domain.HolidayDomain;
-import org.thodoras.eazyschool.services.IHolidayService;
+import org.thodoras.eazyschool.helpers.aspects.interfaces.LogExceptionAspect;
+import org.thodoras.eazyschool.interfaces.IHolidayService;
 
 import java.util.stream.Collectors;
 
@@ -20,6 +21,7 @@ public class HolidayController {
         this.holidayService = holidayService;
     }
 
+    @LogExceptionAspect
     @GetMapping("/holidays")
     public String holidayDisplayPage(
             Model model,

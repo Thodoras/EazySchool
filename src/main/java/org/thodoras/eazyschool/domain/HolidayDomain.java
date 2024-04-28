@@ -5,12 +5,23 @@ import lombok.Data;
 @Data
 public class HolidayDomain {
 
-    private final String day;
-    private final String reason;
-    private final Type type;
+    private int id;
+    private String day;
+    private String reason;
+    private Type type;
 
     public enum Type {
-        FESTIVAL, FEDERAL
+        GENERIC, FESTIVAL, FEDERAL
+    }
+
+    public void setType(String type) {
+        if (type.equals(Type.FESTIVAL.toString())) {
+            this.type = Type.FESTIVAL;
+        } else if (type.equals(Type.FEDERAL.toString())) {
+            this.type = Type.FEDERAL;
+        } else {
+            this.type = Type.GENERIC;
+        }
     }
 
 }
